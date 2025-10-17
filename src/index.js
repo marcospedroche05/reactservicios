@@ -7,6 +7,7 @@ import ServicioApiCustomers from "./components/ServicioApiCustomers";
 import ServiceApiSuppliers from "./components/ServiceApiSuppliers";
 import EmpleadosDepartamento from "./components/EmpleadosDepartamento";
 import EmpleadosDepartamentosv2 from "./components/EmpleadosDepartamentosv2";
+import EmpleadosOficios from "./components/EmpleadosOficios";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,8 +15,9 @@ root.render(
     {/* <ServicioApiCustomers />
     <ServiceApiSuppliers /> */}
     {/* <EmpleadosDepartamento /> */}
-    <EmpleadosDepartamentosv2 />
-    <App />
+    {/* <EmpleadosDepartamentosv2 /> */}
+    <EmpleadosOficios />
+    {/* <App /> */}
   </>
 );
 
