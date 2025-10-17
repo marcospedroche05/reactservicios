@@ -6,13 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 import ServicioApiCustomers from "./components/ServicioApiCustomers";
 import ServiceApiSuppliers from "./components/ServiceApiSuppliers";
 import EmpleadosDepartamento from "./components/EmpleadosDepartamento";
+import EmpleadosDepartamentosv2 from "./components/EmpleadosDepartamentosv2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     {/* <ServicioApiCustomers />
     <ServiceApiSuppliers /> */}
-    <EmpleadosDepartamento />
+    {/* <EmpleadosDepartamento /> */}
+    <EmpleadosDepartamentosv2 />
     <App />
   </>
 );
