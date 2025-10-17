@@ -9,7 +9,7 @@ import ServiceApiSuppliers from "./components/ServiceApiSuppliers";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    {/* <ServicioApiCustomers /> */}
+    <ServicioApiCustomers />
     <ServiceApiSuppliers />
     <App />
   </>
