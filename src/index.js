@@ -10,6 +10,10 @@ import EmpleadosDepartamentosv2 from "./components/EmpleadosDepartamentosv2";
 import EmpleadosOficios from "./components/EmpleadosOficios";
 import Departamento from "./components/maestrodetalle/Departamento";
 import Cursos from "./components/ejemplocomunicacion/Cursos";
+import TablaMultiplicar from "./components/TablaMultiplicar";
+import Home from "./components/Home";
+import Router from "./components/Router";
+import MenuRutas from "./components/MenuRutas";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,7 +23,8 @@ root.render(
     {/* <EmpleadosDepartamento /> */}
     {/* <EmpleadosDepartamentosv2 /> */}
     {/* <Departamento/> */}
-    <Cursos/>
+    <MenuRutas/>
+    <Router/>
     {/* <App /> */}
   </>
 );
