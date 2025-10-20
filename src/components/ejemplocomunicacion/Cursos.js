@@ -4,9 +4,9 @@ import axios from 'axios';
 import Alumnos from './Alumnos';
 
 export default class Cursos extends Component {
-    url = Global.urlCursos;
+    url = Global.urlAlumnos;
     desplegableCursos = React.createRef();
-    bascarCursos = () => {
+    buscarCursos = () => {
         var request = "api/Alumnos/Cursos";
         axios.get(this.url + request).then(response => {
             this.setState({
@@ -14,7 +14,8 @@ export default class Cursos extends Component {
             })
         })
     }
-    seleccionaCurso = () => {
+    seleccionaCurso = (event) => {
+        event.preventDefault();
         this.setState({
             cursoSeleccionado: this.desplegableCursos.current.value
         })
@@ -30,7 +31,7 @@ export default class Cursos extends Component {
         alumnoSeleccionado: null
     }
     componentDidMount = () => {
-        this.bascarCursos();
+        this.buscarCursos();
     }
     render() {
     return (
@@ -38,6 +39,7 @@ export default class Cursos extends Component {
         <h1>Cursos</h1>
         <form>
             <select ref={this.desplegableCursos} onChange={this.seleccionaCurso}>
+                <option value="0">SELECCIONA UN CURSO</option>
                 {
                     this.state.cursos.map((curso, index) => {
                         return (
@@ -51,7 +53,7 @@ export default class Cursos extends Component {
             <div>
                 <h1>{this.state.alumnoSeleccionado.nombre} {this.state.alumnoSeleccionado.apellidos}</h1>
                 <h1>IdAlumno: {this.state.alumnoSeleccionado.idAlumno}</h1>
-                <img src={this.state.alumnoSeleccionado.imagen} width={150}/>
+                <img src={this.state.alumnoSeleccionado.imagen} width={250}/>
             </div>
         )}
         {this.state.cursoSeleccionado != 0 && (
