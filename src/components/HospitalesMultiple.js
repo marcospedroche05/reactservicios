@@ -6,6 +6,7 @@ import Trabajadores from "./Trabajadores";
 export default class HospitalesMultiple extends Component {
   url = Global.apiTrabajadores;
   selectMultiple = React.createRef();
+  cajaIncremento = React.createRef();
   loadHospitales = () => {
     var request = "api/Hospitales";
     axios.get(this.url + request).then((response) => {
@@ -23,6 +24,21 @@ export default class HospitalesMultiple extends Component {
     });
     this.setState({
       hospitalesEnviados: aux,
+    });
+  };
+  incrementoSalarial = () => {
+    var incremento = parseInt(this.cajaIncremento.current.value);
+    var opciones = Array.from(this.selectMultiple.current.selectedOptions);
+    var data = "";
+    data += "incremento=" + incremento + "&";
+    opciones.map((opcion, index) => {
+      data += "idhospital=" + opcion.value + "&";
+    });
+    data = data.substring(0, data.length - 1);
+    var request =
+      "api/trabajadores/updatesalariotrabajadoreshospitales?" + data;
+    axios.put(this.url + request).then((response) => {
+      window.location.reload();
     });
   };
   state = {
@@ -46,6 +62,11 @@ export default class HospitalesMultiple extends Component {
               );
             })}
           </select>
+          <br />
+          <label>Incremento: </label>
+          <input type="number" ref={this.cajaIncremento} />
+          <br />
+          <button onClick={this.incrementoSalarial}>Incrementar Salario</button>
           <button>Enviar trabajadores</button>
         </form>
         {this.state.hospitalesEnviados.length >= 1 && (

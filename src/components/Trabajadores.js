@@ -33,11 +33,28 @@ export default class Trabajadores extends Component {
     return (
       <div>
         <h1>Trabajadores</h1>
-        <ul>
-          {this.state.trabajadores.map((trabajador, index) => {
-            return <li key={index}>{trabajador.apellido}</li>;
-          })}
-        </ul>
+        <table>
+          <thead>
+            <th>Id Trabajador</th>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th>Id hospital</th>
+          </thead>
+          <tbody>
+            {this.state.trabajadores.map((trabajador, index) => {
+              return (
+                <tr key={index}>
+                  <td>{trabajador.idTrabajador}</td>
+                  <td>{trabajador.apellido}</td>
+                  <td>{trabajador.oficio}</td>
+                  <td>{trabajador.salario}</td>
+                  <td>{trabajador.idHospital}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
