@@ -5,6 +5,8 @@ import TablaMultiplicar from "./TablaMultiplicar";
 import NotFound from "./NotFound";
 import Collatz from "./Collatz";
 import MenuRutas from "./MenuRutas";
+import HospitalesMultiple from "./HospitalesMultiple";
+import Trabajadores from "./Trabajadores";
 
 export default class Router extends Component {
   render() {
@@ -29,6 +31,7 @@ export default class Router extends Component {
             element={<TablaMultiplicarElement />}
           />
           <Route path="/collatz/:numero" element={<CollatzElement />} />
+          <Route path="/hospitales" element={<HospitalesMultiple />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

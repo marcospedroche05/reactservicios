@@ -21,6 +21,9 @@ export default class MenuRutas extends Component {
           <li>
             <NavLink to="/collatz/12">Collatz con 12</NavLink>
           </li>
+          <li>
+            <NavLink to="/hospitales">Hospitales multiple</NavLink>
+          </li>
         </ul>
       </div>
     );
