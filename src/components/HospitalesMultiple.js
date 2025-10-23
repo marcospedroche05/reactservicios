@@ -15,17 +15,21 @@ export default class HospitalesMultiple extends Component {
       });
     });
   };
-  seleccionHospitales = (event) => {
-    event.preventDefault();
+  getSeleccionados = () => {
     var aux = [];
     var opciones = Array.from(this.selectMultiple.current.selectedOptions);
     opciones.map((opcion, index) => {
       aux.push(parseInt(opcion.value));
     });
+    return aux;
+  };
+  seleccionHospitales = (event) => {
+    event.preventDefault();
     this.setState({
-      hospitalesEnviados: aux,
+      hospitalesEnviados: this.getSeleccionados(),
     });
   };
+
   incrementoSalarial = () => {
     var incremento = parseInt(this.cajaIncremento.current.value);
     var opciones = Array.from(this.selectMultiple.current.selectedOptions);
@@ -38,7 +42,9 @@ export default class HospitalesMultiple extends Component {
     var request =
       "api/trabajadores/updatesalariotrabajadoreshospitales?" + data;
     axios.put(this.url + request).then((response) => {
-      window.location.reload();
+      this.setState({
+        hospitalesEnviados: this.getSeleccionados(),
+      });
     });
   };
   state = {
